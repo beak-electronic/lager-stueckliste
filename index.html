@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Lager Stückliste" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1c1c1e" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="description" content="Lager-Stückliste PDF öffnen und ausfüllen – offline PWA" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <!-- iOS Home Screen: root-absolute paths; SW bypasses these URLs -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120.png" type="image/png" />
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" type="image/png" />
+  <link rel="icon" type="image/png" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png" />
+  <link rel="stylesheet" href="css/app.css?v=1.7" />
+  <title>Lager Stückliste</title>
+</head>
+<body>
+  <script>
+    (function () {
+      try {
+        var standalone = window.navigator.standalone === true
+          || window.matchMedia('(display-mode: standalone)').matches
+          || window.matchMedia('(display-mode: window-controls-overlay)').matches;
+        if (standalone) document.documentElement.setAttribute('data-standalone', '1');
+      } catch (e) {}
+    })();
+  </script>
+  <div class="ios-pwa-status-strip" aria-hidden="true"></div>
+  <!-- HOME: PDF öffnen -->
+  <div id="home" class="home">
+    <header class="app-topbar">
+      <h1 class="app-heading">Lager Stückliste</h1>
+      <span class="app-beak" aria-label="BEAK"><span class="beak-letters">B&nbsp;E&nbsp;A&nbsp;K</span><span class="beak-dot">•</span></span>
+    </header>
+    <div class="home-scroll">
+    <div class="wrap">
+      <section class="open-section" aria-labelledby="open-heading">
+        <h2 id="open-heading" class="section-title open-title">Öffnen</h2>
+        <p class="open-copy">
+          PDF direkt wählen und im Stempel-/Zeichenmodus bearbeiten
+          (Initialen, Datum, Apple Pencil). Speichern teilt oder lädt die Datei herunter.
+        </p>
+        <button type="button" class="btn btn-prominent" id="btn-pdf-open">Lager Stückliste öffnen</button>
+      </section>
+
+      <p class="status" id="status" role="status">Bereit</p>
+
+      <div class="home-footer-row">
+        <p class="home-footer">
+          Version 1.7<br />
+          © BEAK electronic engineering GmbH &amp; Co. KG
+        </p>
+        <button type="button" class="footer-settings-btn" id="btn-home-settings" aria-label="Einstellungen" title="Einstellungen">
+          <img class="pill-icon" src="icons/settings_btn.png?v=2" alt="" width="40" height="40" draggable="false" />
+        </button>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- FILL MODE: toolbar + viewer (hidden until PDF open) -->
+  <div id="fill-mode" class="fill-mode hidden">
+    <header class="toolbar" id="fill-toolbar">
+      <button type="button" class="btn btn-stamp-settings" id="btn-fill-settings" aria-label="Einstellungen" title="Einstellungen">
+        <canvas id="fill-settings-stamp" class="stamp-settings-canvas" width="72" height="72" aria-hidden="true"></canvas>
+        <span class="stamp-settings-gear" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="12" height="12" focusable="false">
+            <path fill="currentColor" d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.03 7.03 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.49-.42h-3.84a.5.5 0 0 0-.49.42l-.36 2.54c-.59.24-1.13.55-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.77 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.12.22.37.3.6.22l2.39-.96c.5.39 1.04.71 1.63.94l.36 2.54c.05.24.25.42.49.42h3.84c.24 0 .44-.18.49-.42l.36-2.54c.59-.24 1.13-.55 1.63-.94l2.39.96c.23.08.48 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/>
+          </svg>
+        </span>
+      </button>
+      <div class="toolbar-center">
+        <button type="button" class="btn btn-text" id="btn-fill-close" aria-label="Schließen">Schließen</button>
+      </div>
+      <div class="toolbar-right">
+        <button type="button" class="btn btn-icon hidden" id="btn-ink-undo" aria-label="Rückgängig" title="Rückgängig">
+          <svg class="toolbar-svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C20.88 11.06 17.01 8 12.5 8z"/>
+          </svg>
+        </button>
+        <button type="button" class="btn btn-prominent hidden" id="btn-save" aria-label="Sichern">Sichern</button>
+      </div>
+    </header>
+    <main id="main-fill">
+      <section id="viewer" class="viewer" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <input type="file" id="file-input" accept="application/pdf,.pdf" hidden />
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <!-- Home settings -->
+  <dialog id="home-settings-dialog" class="settings-dialog">
+    <form method="dialog" id="home-settings-form">
+      <header class="settings-header">
+        <h2>Einstellungen</h2>
+        <button type="button" class="btn-done" id="btn-home-settings-done" value="done">Fertig</button>
+      </header>
+      <div class="settings-body">
+        <section class="settings-section cardish" id="settings-pdf-folder">
+          <h3>PDF-Ordner</h3>
+          <p class="hint" id="settings-folder-platform-hint">
+            Am Desktop (Chrome/Edge) kann ein Ordner dauerhaft verknüpft und beim Start neu eingelesen werden.
+            Am iPad behält Safari keinen Live-Ordnerlink.
+          </p>
+          <div id="settings-folder-block" class="settings-catalog-block">
+            <p class="hint" id="settings-folder-label">Kein Ordner gewählt.</p>
+            <p class="hint">Ordner mit Lager-Stücklisten-PDFs wählen. Beim App-Start wird der Ordner neu eingelesen. Beim Öffnen/Speichern startet der Dateidialog in diesem Ordner.</p>
+            <div class="settings-btn-row">
+              <button type="button" class="btn btn-secondary" id="btn-pick-folder">Ordner wählen</button>
+              <button type="button" class="btn btn-secondary" id="btn-clear-folder">Ordner lösen</button>
+            </div>
+          </div>
+        </section>
+        <section class="settings-section cardish">
+          <h3>PDF speichern</h3>
+          <label class="field-label" for="settings-save-mode">Speichern-Art</label>
+          <select id="settings-save-mode">
+            <option value="auto">Automatisch (iPad: Teilen, Mac: Datei speichern)</option>
+            <option value="share">Immer Teilen-Menü</option>
+            <option value="download">Immer Datei speichern / Download</option>
+          </select>
+          <p class="hint">Am iPad bleibt Teilen mit „In Dateien sichern“ sinnvoll.</p>
+        </section>
+        <section class="settings-section cardish">
+          <h3>Info</h3>
+          <p class="hint">Lager Stückliste 1.7<br />© BEAK electronic engineering GmbH &amp; Co. KG</p>
+        </section>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Fill settings (only used when PDF open) -->
+  <dialog id="fill-settings-dialog" class="settings-dialog fill-settings-dialog">
+    <form method="dialog" id="fill-settings-form">
+      <header class="settings-header">
+        <h2>Einstellungen</h2>
+        <button type="submit" class="btn btn-text btn-primary-text btn-done" value="done">Fertig</button>
+      </header>
+
+      <div class="settings-scroll">
+      <section class="settings-section">
+        <h3>Feldvorlage</h3>
+        <label class="field-label" for="fill-settings-template">Vorlage</label>
+        <select id="fill-settings-template">
+          <option value="auto">Auto (aus Dateiname / PDF)</option>
+          <option value="lager-stueckliste">Lager Stückliste (Zeilen)</option>
+        </select>
+        <p class="hint">Auto wählt die Lager-Stückliste-Vorlage. Manuell überschreiben möglich.</p>
+      </section>
+
+
+      <section class="settings-section">
+        <h3>Zoom</h3>
+        <label class="field-label" for="fill-settings-zoom">Ansicht</label>
+        <select id="fill-settings-zoom">
+          <option value="cols-hidden">Lieferant, Bestellnummer, VPE ausgeblendet</option>
+          <option value="fit">an Display angepasst</option>
+          <option value="original">Original</option>
+        </select>
+        <p class="hint">Standard: Differenz und Bauform sichtbar, Lieferant/Bestell/VPE ausgeblendet; bei mehreren Seiten wird oben/unten bis zur Tabelle bzw. zum Gebucht-Stempel zugeschnitten. „an Display angepasst“ ist die bisherige volle Tabellenbreite. „Original“ zeigt die ganze Seite.</p>
+      </section>
+      <section class="settings-section">
+        <h3>Initialen (Stempel)</h3>
+        <input type="text" id="fill-settings-initials" maxlength="12" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" placeholder="z. B. DK" />
+        <p class="hint">Für „gebucht am … von …“ und Initialen-Stempel. Leer nicht erlaubt.</p>
+      </section>
+
+      <section class="settings-section">
+        <h3>Stempel-Datum (nur dieses Dokument)</h3>
+        <input type="text" id="fill-settings-date" maxlength="10" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="TT.MM.JJ" inputmode="numeric" />
+        <p class="hint" id="fill-settings-date-hint">Leer = heutiges Datum (TT.MM.JJ). Beim Schließen des Dokuments wird die Überschreibung verworfen.</p>
+        <button type="button" class="btn btn-secondary" id="btn-fill-reset-date">Auf heute zurücksetzen</button>
+      </section>
+
+      <section class="settings-section">
+        <h3>Gebucht-Stempel</h3>
+        <p class="hint">Tippe unten auf der Seite in die Fußzeile zwischen „Gedruckt von …“ und „BEAK electronic“, um den Stempel <strong>gebucht am … von …</strong> zu setzen (nochmal tippen löscht ihn). Datum und Initialen kommen aus den Feldern oben.</p>
+      </section>
+
+      <section class="settings-section">
+        <h3>Farbe für Stempel</h3>
+        <div class="color-row">
+          <span>Aktuelle Farbe</span>
+          <button type="button" id="btn-fill-cycle-color" class="color-swatch large" aria-label="Farbe wechseln"></button>
+        </div>
+        <p class="hint">Für Bedarf-Linie und „gebucht am … von …“. Tippe den Kreis oder eine Farbe. Die Auswahl bleibt gespeichert (auch Tage später auf dem iPad).</p>
+        <div class="color-grid" id="fill-color-grid" role="listbox" aria-label="Farbauswahl"></div>
+      </section>
+
+      <section class="settings-section">
+        <div class="toggle-row">
+          <label for="fill-settings-erase-mode">Zellen löschen</label>
+          <input type="checkbox" id="fill-settings-erase-mode" />
+        </div>
+        <p class="hint">Aktives Tippen setzt nur weißen Hintergrund (zum Überdecken falscher Stempel). Gilt nur für dieses Dokument.</p>
+      </section>
+
+      <section class="settings-section" id="fill-settings-bg-grid-only" hidden>
+        <h3>Letzte Spalte (BG-Grid)</h3>
+        <div class="toggle-row">
+          <label for="fill-settings-last-col-date-only">„Baugruppe gebucht“ nur Datum</label>
+          <input type="checkbox" id="fill-settings-last-col-date-only" checked />
+        </div>
+        <p class="hint">Nur für Legacy-Baugruppen-Grid. Geräte-Vorlagen nutzen Feldaktionen.</p>
+      </section>
+
+      <section class="settings-section">
+        <h3>Apple Pencil</h3>
+        <p class="hint">Apple Pencil: frei zeichnen / Unterschrift (Seite 3). Finger/Maus: Felder tippen (OK, Datum, Initialen, Text…).</p>
+      </section>
+      </div>
+    </form>
+  </dialog>
+
+
+  <!-- Field text / manual entry -->
+  <dialog id="field-entry-dialog" class="settings-dialog field-entry-dialog">
+    <form method="dialog" id="field-entry-form" class="field-entry-form">
+      <header class="settings-header">
+        <h2 id="field-entry-title">Eingabe</h2>
+      </header>
+      <div class="settings-body" style="padding:12px 16px 8px">
+        <input type="text" id="field-entry-input" autocomplete="off" autocorrect="on" autocapitalize="sentences" spellcheck="false" />
+        <p class="hint" id="field-entry-hint"></p>
+        <div class="settings-btn-row" style="margin-top:12px;flex-wrap:wrap;gap:8px">
+          <button type="button" class="btn btn-prominent btn-field-action" id="btn-field-entry-ok">OK</button>
+          <button type="button" class="btn btn-text" id="btn-field-entry-cancel">Abbrechen</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+
+  <script src="vendor/pdf-lib.min.js?v=2"></script>
+  <script src="vendor/fontkit.umd.min.js?v=2"></script>
+  <script type="module" src="js/app.js?v=1.7"></script>
+</body>
+</html>

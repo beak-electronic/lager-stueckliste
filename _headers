@@ -1,0 +1,32 @@
+# Netlify MIME / cache hints (also mirrored in netlify.toml)
+/vendor/*
+  Content-Type: application/javascript; charset=utf-8
+
+/js/*
+  Content-Type: application/javascript; charset=utf-8
+
+/*.webmanifest
+  Content-Type: application/manifest+json
+
+/sw.js
+  Cache-Control: no-cache
+
+/apple-touch-icon.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/apple-touch-icon-*.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/apple-touch-icon-precomposed.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/favicon.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/icons/*.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=3600, must-revalidate

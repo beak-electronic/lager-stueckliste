@@ -1,0 +1,13 @@
+# Confidential / local only
+*.pdf
+samples/*.pdf
+!samples/index.json
+
+.DS_Store
+*.zip
+.env
+.env.*
+*.log
+node_modules/
+*.bak*
+js/*.bak*

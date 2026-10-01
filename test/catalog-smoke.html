@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><meta charset="utf-8" /><title>catalog-smoke</title></head>
+<body>
+<pre id="out">running…</pre>
+<script type="module">
+/**
+ * Smoke: store fake PDF File(s) in IDB via mergePdfsFromFileList, resolve by SN.
+ * Open via http://localhost:<port>/test/catalog-smoke.html (needs same-origin modules).
+ */
+const lines = [];
+const log = (...a) => {
+  lines.push(a.join(" "));
+  document.getElementById("out").textContent = lines.join("\n");
+};
+
+import {
+  serialFromPdfFilename,
+  canonicalizeSerial,
+  filenameMatchesSerial,
+  mergePdfsFromFileList,
+  findPdfBySerial,
+  clearIdbCatalog,
+} from "../js/catalog.js";
+import { extractSerialFromPayload } from "../js/sn.js";
+
+function pdfFile(name, body = "%PDF-1.4 smoke-" + name) {
+  return new File([body], name, { type: "application/pdf" });
+}
+
+let failed = 0;
+function assert(cond, msg) {
+  if (cond) log("OK", msg);
+  else {
+    failed++;
+    log("FAIL", msg);
+  }
+}
+
+try {
+  assert(
+    serialFromPdfFilename("DE-200.433-BS0180E01A21K0103.pdf") === "BS0180E01A21K0103",
+    "ASCII header filename → SN"
+  );
+  assert(
+    serialFromPdfFilename("DE-200.433\u2010UNICODESN00001.pdf") === "UNICODESN00001",
+    "Unicode hyphen filename → SN"
+  );
+  assert(
+    canonicalizeSerial("abc") === "ABC",
+    "canonicalize uppercases"
+  );
+  assert(
+    filenameMatchesSerial("DE-200.433-ZzTest.pdf", "zztest"),
+    "filenameMatchesSerial case-insensitive"
+  );
+  assert(
+    extractSerialFromPayload("DE-200.433-PA180DM-SPEKTRA-V1-BS0180E01A21K0103") ===
+      "BS0180E01A21K0103",
+    "payload SN"
+  );
+
+  await clearIdbCatalog();
+
+  const sn = "ZZSMOKESERIAL001";
+  const uniSn = "SMOKEUNICODE002";
+  await mergePdfsFromFileList([
+    pdfFile(`DE-200.433-${sn}.pdf`),
+    pdfFile(`DE-200.433\u2010${uniSn}.pdf`),
+    pdfFile("plainonly.pdf"),
+  ]);
+
+  const hit = await findPdfBySerial(sn);
+  assert(!!hit && hit.source === "idb", "resolve imported SN from IDB");
+  assert(hit && /ZZSMOKESERIAL001/i.test(hit.file.name), "opened file name contains SN");
+
+  const hitLower = await findPdfBySerial(sn.toLowerCase());
+  assert(!!hitLower && hitLower.source === "idb", "resolve lowercase SN → IDB");
+
+  const hitUni = await findPdfBySerial(uniSn);
+  assert(!!hitUni && hitUni.source === "idb", "resolve unicode-hyphen imported filename");
+
+  const hitPlain = await findPdfBySerial("plainonly");
+  assert(!!hitPlain && hitPlain.source === "idb", "resolve {SN}.pdf style");
+
+  // Samples resolve relative to the document URL; from /test/ use an absolute fetch check
+  // then verify findPdfBySerial from a root-context by temporarily importing is enough:
+  // Prefer checking that IDB wins when we store the demo SN under a distinctive name.
+  await mergePdfsFromFileList([
+    pdfFile("DE-200.433-BS0180E01A21K0103.pdf", "%PDF-1.4 imported-demo-body"),
+  ]);
+  const demo = await findPdfBySerial("BS0180E01A21K0103");
+  assert(!!demo && demo.source === "idb", "imported demo SN opens from IDB (not blocked by samples)");
+  const demoBuf = await demo.file.arrayBuffer();
+  const demoText = new TextDecoder().decode(demoBuf.slice(0, 40));
+  assert(demoText.includes("imported-demo-body"), "IDB import content wins over bundled sample");
+
+  log(failed ? `DONE with ${failed} failure(s)` : "DONE all passed");
+  document.title = failed ? "FAIL" : "PASS";
+} catch (e) {
+  log("ERROR", e && (e.stack || e.message || e));
+  document.title = "FAIL";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="/css/app.css"></head>
+<body>
+  <div id="field-scan-overlay" class="field-scan-overlay hidden" role="dialog" aria-modal="true" hidden>
+    <header class="settings-header field-scan-header">
+      <h2>Feld scannen</h2>
+      <button type="button" class="btn-done" id="btn-field-scan-close">Schließen</button>
+    </header>
+    <div class="field-scan-body">
+      <button type="button" id="btn-field-scan-stop">Stop</button>
+      <button type="button" id="btn-field-scan-cancel">Abbrechen</button>
+    </div>
+  </div>
+  <pre id="out">pending</pre>
+<script>
+const ov = document.getElementById('field-scan-overlay');
+function show(){ ov.removeAttribute('hidden'); ov.classList.remove('hidden'); ov.classList.add('open'); }
+function hide(){ ov.classList.remove('open'); ov.classList.add('hidden'); ov.setAttribute('hidden',''); }
+const cs = () => getComputedStyle(ov);
+show();
+const openDisplay = cs().display;
+const openZ = cs().zIndex;
+const pe = getComputedStyle(document.getElementById('btn-field-scan-close')).pointerEvents;
+hide();
+const closedDisplay = cs().display;
+const ok = openDisplay === 'flex' && Number(openZ) >= 100000 && pe === 'auto' && (closedDisplay === 'none');
+document.getElementById('out').textContent = (ok?'PASS':'FAIL') + `\nopen=${openDisplay} z=${openZ} pe=${pe} closed=${closedDisplay}`;
+document.title = ok ? 'PASS' : 'FAIL';
+</script>
+</body></html>

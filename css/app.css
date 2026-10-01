@@ -1,0 +1,1493 @@
+
+@font-face {
+  font-family: "AeonisLogo";
+  src: url("../fonts/Aeonis.subset.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ConstantiaBullet";
+  src: url("../fonts/Constantia-Bold.subset.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  color-scheme: light dark;
+  --pink: #dd007a;
+  --pink-hover: #c0006a;
+  /* System/native surfaces — follow Mac/iPad light & dark */
+  --bg: Canvas;
+  --bg-ios: Canvas;
+  --card: color-mix(in srgb, CanvasText 8%, Canvas);
+  --text: CanvasText;
+  --secondary: color-mix(in srgb, CanvasText 72%, transparent);
+  --muted: color-mix(in srgb, CanvasText 48%, transparent);
+  --border: color-mix(in srgb, CanvasText 22%, transparent);
+  --toolbar-bg: color-mix(in srgb, Canvas 88%, transparent);
+  --toolbar-border: color-mix(in srgb, CanvasText 18%, transparent);
+  --accent: #007aff;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --theme-chrome: #ffffff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --card: #ffffff;
+    --toolbar-bg: rgba(255, 255, 255, 0.92);
+    --toolbar-border: rgba(60, 60, 67, 0.18);
+    --theme-chrome: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card: #1c1c1e;
+    --toolbar-bg: rgba(28, 28, 30, 0.92);
+    --toolbar-border: rgba(84, 84, 88, 0.45);
+    --theme-chrome: #1c1c1e;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background-color: Canvas; /* no forced app tint — native system surface */
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding: calc(16px + var(--safe-top)) 16px calc(16px + var(--safe-bottom));
+}
+
+.hidden {
+  display: none !important;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+h1.title {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* iOS 26/27: scroll-pocket blur hides only when a sticky/fixed opaque edge exists
+   (same mechanism as .toolbar in fill mode). position:relative is NOT enough. */
+.app-topbar {
+  flex: 0 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: calc(6px + var(--safe-top)) 16px 8px;
+  min-height: calc(36px + var(--safe-top));
+  /* Opaque solid color (alpha >= 0.75) — WebKit reads background-color for the edge */
+  background-color: #ffffff;
+  background-color: var(--theme-chrome);
+  border-bottom: 1px solid var(--toolbar-border);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Paintless fixed strip: WebKit samples background-color for the top edge
+   (hides scroll-pocket blur) without drawing a visible bar. */
+.ios-pwa-status-strip {
+  display: none;
+}
+@supports (-webkit-touch-callout: none) {
+  :root[data-standalone] .ios-pwa-status-strip {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12px; /* > thinBorderWidth (~10px) so color is taken from style */
+    z-index: 2147483646;
+    pointer-events: none;
+    background-color: #ffffff;
+    background-color: var(--theme-chrome);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+.app-fbl {
+  justify-self: start;
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--muted);
+  white-space: normal;
+}
+
+.app-heading {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: left;
+  line-height: 1.2;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.app-beak {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.12em;
+  user-select: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.app-beak .beak-letters {
+  font-family: "AeonisLogo", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: #727272;
+  font-weight: 400;
+}
+.app-beak .beak-dot {
+  font-family: "ConstantiaBullet", Georgia, serif;
+  font-size: 15px;
+  color: var(--pink);
+  line-height: 1;
+  transform: translateY(0.5px);
+}
+
+@media (max-width: 380px) {
+  .app-heading { font-size: 16px; }
+  .app-beak .beak-letters,
+  .app-beak .beak-dot { font-size: 14px; }
+}
+
+.section-title {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+/* Footer: version/copyright left, settings bottom-right aligned */
+.home-footer-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 8px;
+}
+.home-footer-row .home-footer {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+.footer-settings-btn {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  align-self: flex-end;
+}
+.footer-settings-btn:active {
+  opacity: 0.75;
+}
+.footer-settings-btn .pill-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+
+.open-section .open-title,
+.open-section .section-title {
+  text-align: left;
+  font-size: 18px;
+  align-self: stretch;
+}
+.open-section {
+  align-items: stretch;
+  text-align: left;
+}
+.open-section .btn-prominent {
+  align-self: center;
+}
+.open-copy {
+  text-align: left;
+}
+
+.home-divider-top {
+  margin: 0 0 18px;
+}
+
+.pill-btn {
+  background: transparent;
+}
+
+.pill-btn.send {
+  background: transparent;
+  padding: 0;
+}
+
+.pill-btn.send:active {
+  background: transparent;
+  opacity: 0.85;
+}
+
+.pill-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.example {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--secondary);
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.35;
+}
+
+.example:active {
+  opacity: 0.7;
+}
+
+.example a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Pill input */
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 48px;
+  padding: 4px 4px 4px 4px;
+  background: var(--card);
+  border: 1px solid color-mix(in srgb, CanvasText 22%, transparent);
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.pill-btn {
+  appearance: none;
+  border: none;
+  background: #e8e8e8;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+  color: #333;
+  padding: 0;
+}
+
+.pill-btn:active {
+  background: #d0d0d0;
+}
+
+.pill-btn.send {
+  background: var(--pink);
+  color: #fff;
+}
+
+.pill-btn.send:active {
+  background: var(--pink-hover);
+}
+
+/* Windows-style circular icon buttons (PNG) */
+.pill-btn:has(.pill-icon) {
+  background: transparent;
+  width: 40px;
+  height: 40px;
+}
+.pill-btn.send:has(.pill-icon),
+.pill-btn.send:has(.pill-icon):active {
+  background: transparent;
+}
+
+.pill-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.pill input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 16px; /* avoid iOS zoom */
+  color: var(--text);
+  padding: 0 4px;
+}
+
+.pill input::placeholder {
+  color: #999;
+}
+
+/* Jobs */
+.jobs-header {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  text-align: left;
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.jobs-header:active {
+  background: transparent;
+  opacity: 0.65;
+}
+
+.jobs-panel {
+  margin-top: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.jobs-panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 280px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.jobs-panel li {
+  padding: 10px 14px;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  word-break: break-word;
+}
+
+.jobs-panel li:last-child {
+  border-bottom: none;
+}
+
+.job-waiting { color: #555; }
+.job-running { color: var(--pink); font-weight: 600; }
+.job-done { color: #1a7f37; }
+.job-error { color: #c62828; }
+
+.status {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #333;
+}
+
+.status[data-kind="busy"] { color: var(--pink); }
+.status[data-kind="ok"] { color: #1a7f37; }
+.status[data-kind="error"] { color: #c62828; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(24px + var(--safe-bottom));
+  transform: translateX(-50%);
+  max-width: min(92vw, 420px);
+  background: rgba(28, 28, 30, 0.92);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  z-index: 50;
+  text-align: center;
+}
+
+/* Settings dialog */
+.settings-dialog {
+  border: none;
+  border-radius: 14px;
+  padding: 0;
+  width: min(92vw, 420px);
+  max-height: min(92vh, 720px);
+  background: var(--bg-ios);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  /* IMPORTANT: never set display:flex on closed <dialog> — it stays visible on iOS/WebKit */
+  flex-direction: column;
+}
+.settings-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.settings-dialog > form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: min(92vh, 720px);
+  overflow: hidden;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--card);
+  border-bottom: 1px solid rgba(60, 60, 67, 0.18);
+  /* Always keep „Fertig“ visible while settings list scrolls */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.settings-header h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.settings-header .btn-done {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 4px;
+}
+
+.settings-body {
+  padding: 12px 16px 20px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.settings-section {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+  margin-bottom: 12px;
+}
+
+.settings-section h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 16px;
+}
+
+.toggle-row input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--pink);
+}
+
+.hint {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.footer-meta {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* Hide Netlify drawer if present */
+#netlify-drawer,
+.netlify-drawer {
+  display: none !important;
+}
+
+
+/* ===== Merged fill UI ===== */
+
+.home {
+  /* Fixed header + scrollable body (like fill-mode toolbar). */
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  padding: 14px 16px calc(16px + var(--safe-bottom));
+}
+
+/* When home is visible, body chrome padding is handled by topbar + home-scroll. */
+html:has(body:not(.fill-open)) {
+  overflow: hidden;
+  height: 100%;
+  height: 100dvh;
+}
+body:not(.fill-open) {
+  overflow: hidden;
+  height: 100dvh;
+  max-height: 100dvh;
+  padding: 0;
+  background-color: #ffffff;
+  background-color: var(--theme-chrome);
+}
+body:not(.fill-open) .home {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.example-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.example-values {
+  display: block;
+}
+
+.home-divider { display: none;
+  border: none;
+  border-top: 1px solid rgba(60, 60, 67, 0.22);
+  margin: 22px 0 18px;
+}
+
+.open-section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  gap: 12px;
+  padding: 0 0 28px;
+}
+
+.open-section h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.open-copy {
+  margin: 0;
+  color: var(--secondary);
+  line-height: 1.45;
+  font-size: 14px;
+  max-width: none;
+  width: 100%;
+  text-align: left;
+  align-self: stretch;
+  padding: 0;
+}
+
+.empty-icon {
+  display: none;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  color: var(--accent);
+  padding: 10px 12px;
+  border-radius: 10px;
+  touch-action: manipulation;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.btn-text {
+  font-size: 17px;
+}
+
+.btn-primary-text {
+  font-weight: 600;
+}
+
+.btn-prominent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pink);
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 12px 22px;
+  border-radius: 12px;
+}
+
+.btn-prominent:active {
+  background: var(--pink-hover);
+}
+
+.btn-secondary {
+  background: rgba(120, 120, 128, 0.16);
+  color: var(--text);
+  font-size: 15px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+/* Fill mode shell */
+.fill-mode {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  height: 100dvh;
+}
+
+body.fill-open {
+  padding: 0;
+  overflow: hidden; /* PDF viewer scrolls in #main-fill */
+  height: 100%;
+  max-height: 100%;
+  max-height: 100dvh;
+}
+
+html:has(body.fill-open) {
+  overflow: hidden;
+  height: 100%;
+  height: 100dvh;
+}
+
+body.fill-open .fill-mode {
+  display: flex;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: calc(52px + var(--safe-top));
+  padding: var(--safe-top) 12px 0;
+  background: var(--toolbar-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--toolbar-border);
+  color: var(--text);
+}
+
+.toolbar > #btn-fill-settings {
+  justify-self: start;
+}
+
+.toolbar-center {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolbar-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.toolbar-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+.toolbar-right .btn {
+  padding: 8px 10px;
+  font-size: 15px;
+}
+
+.toolbar-right .btn-prominent {
+  padding: 8px 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: #fff;
+}
+.toolbar-center .btn-prominent {
+  padding: 8px 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.toolbar #btn-ink-undo {
+  color: var(--secondary);
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+/* Windows wheel: let #main-fill scroll under the page stack */
+#main-fill {
+  flex: 1;
+  min-height: 0;
+  /* Explicit scrollport so mouse wheel works on Windows Chrome/PWA over the PDF. */
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  background: #ffffff;
+}
+/* Wheel over canvas/page should still scroll #main-fill */
+body.fill-open:not(.pen-drawing) #main-fill {
+  overflow-y: auto;
+}
+
+.viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  /* 10px white side air around cropped table */
+  padding: 8px 3px calc(24px + var(--safe-bottom));
+  background: #ffffff;
+}
+
+/* Standard zoom: stack pages with no gap/shadow so the table reads as one sheet. */
+.viewer.seamless-pages {
+  gap: 0;
+}
+.viewer.seamless-pages .page-wrap {
+  box-shadow: none;
+  background: #ffffff;
+}
+/* Thin white scrub at the right crop edge (kills Lieferant letter peek / rule). */
+.viewer.seamless-pages .page-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 3;
+}
+
+
+.page-wrap {
+  position: relative;
+  background: var(--card);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
+  line-height: 0;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+/* Full PDF page; wrap clips to view_crop_pt so the table fills width */
+.page-wrap > .page-stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 0;
+  z-index: 0;
+  overflow: visible;
+}
+.page-wrap .page-canvas,
+.page-wrap > .page-stage > canvas.page-canvas {
+  position: relative;
+  z-index: 0;
+}
+
+.page-wrap canvas.page-canvas {
+  display: block;
+  /* Exact JS width/height — do not use height:auto (breaks stamp alignment on iPad). */
+  max-width: none;
+  /* Do not capture mouse wheel; #main-fill / bindFillWheelScroll handles it (Windows). */
+  pointer-events: none;
+}
+
+/* Field highlight layer (optional; Lager rows draw none). Under overlay/ink. */
+.page-wrap .fields-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.page-wrap .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.page-wrap .ink-canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  touch-action: none;
+  z-index: 3;
+}
+
+.page-wrap .hit-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  /* Let wheel/trackpad reach #main-fill; only cells capture clicks. */
+  pointer-events: none;
+  z-index: 4;
+}
+
+.page-wrap.inking {
+  touch-action: none;
+}
+
+.hit-cell {
+  position: absolute;
+  pointer-events: auto;
+  touch-action: pan-y manipulation;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.hit-cell:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.hit-cell.filled {
+  background: transparent;
+}
+
+/* gebucht footer cell: larger hit only; never a white plate / wash */
+.hit-cell.hit-gebucht,
+.hit-cell.hit-gebucht.filled {
+  background: transparent !important;
+  box-shadow: none;
+}
+
+/* Fill settings dialog uses fill-app section layout */
+.fill-settings-dialog {
+  width: min(520px, 94vw);
+  max-height: min(86dvh, 720px);
+  overflow: hidden;
+}
+
+.fill-settings-dialog #fill-settings-form {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: min(86dvh, 720px);
+  padding: 0;
+  background: var(--card);
+}
+
+/* Scrollable settings list under sticky „Fertig“ header */
+.fill-settings-dialog .settings-scroll {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 8px 0 20px;
+}
+
+.fill-settings-dialog .settings-section {
+  background: transparent;
+  border-radius: 0;
+  padding: 14px 16px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(60, 60, 67, 0.18);
+}
+
+.fill-settings-dialog .settings-section:last-child {
+  border-bottom: none;
+}
+
+.fill-settings-dialog .settings-section input[type="text"] {
+  width: 100%;
+  font-size: 17px;
+  padding: 12px;
+  border: 1px solid rgba(60, 60, 67, 0.18);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.settings-section.cardish {
+  /* generator card style already via .settings-section */
+}
+
+.color-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.color-swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 0;
+  cursor: pointer;
+}
+
+.color-swatch.large {
+  width: 40px;
+  height: 40px;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.color-grid .color-swatch {
+  width: 100%;
+  aspect-ratio: 1;
+  height: auto;
+}
+
+.color-grid .color-swatch.selected {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--text);
+}
+
+@media (min-width: 900px) {
+  .viewer {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+}
+
+.home-footer {
+  margin: 4px 0 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* Finger may pan/scroll the PDF; Pencil scroll lock only while inking */
+.page-wrap,
+.page-wrap .hit-layer {
+  touch-action: pan-y;
+}
+.page-wrap .ink-canvas {
+  touch-action: none; /* pointer-events: none anyway */
+}
+.page-wrap.inking,
+.page-wrap.inking .hit-layer {
+  touch-action: none;
+}
+body.pen-drawing,
+body.pen-drawing #main-fill {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+.btn-close-x {
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 6px 12px;
+  min-width: 40px;
+}
+
+
+/* Home job preview under pill */
+.job-preview {
+  margin: 10px 4px 4px;
+  padding: 0 4px;
+}
+.job-preview-line {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--secondary);
+  font-variant-numeric: tabular-nums;
+}
+.job-preview-line + .job-preview-line {
+  margin-top: 2px;
+}
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  color: var(--secondary);
+  margin: 10px 0 4px;
+}
+.settings-section input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+
+/* Fill toolbar icon buttons */
+.toolbar .btn-icon {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 6px;
+  margin: 0;
+  min-width: 40px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.toolbar .btn-icon:active {
+  opacity: 0.7;
+}
+.toolbar-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.toolbar-svg {
+  display: block;
+  pointer-events: none;
+}
+.toolbar #btn-ink-undo {
+  color: var(--secondary);
+}
+
+
+/* Round pink Speichern (floppy) — same diameter as toolbar icon buttons */
+.btn-save-round {
+  appearance: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--pink);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+}
+.btn-save-round:active {
+  background: var(--pink-hover);
+}
+.btn-save-round .save-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  pointer-events: none;
+}
+#settings-save-mode {
+  width: 100%;
+  margin: 6px 0 8px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+
+
+/* Stamp preview + gear for fill Einstellungen */
+.btn-stamp-settings {
+  appearance: none;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+  border-radius: 10px;
+}
+.btn-stamp-settings:active {
+  opacity: 0.75;
+}
+.stamp-settings-canvas {
+  width: 36px;
+  height: 36px;
+  display: block;
+  border-radius: 8px;
+  /* Always light gray so stamp stays readable in Dark Mode */
+  background: #e8e8ed;
+  box-shadow: 0 0 0 1px color-mix(in srgb, CanvasText 10%, transparent);
+}
+.stamp-settings-gear {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #f2f2f7;
+  color: #3a3a3c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 1px rgba(60, 60, 67, 0.22);
+  pointer-events: none;
+}
+.stamp-settings-gear svg {
+  display: block;
+}
+.toolbar > #btn-fill-settings {
+  justify-self: start;
+}
+
+/* —— Geräte Laufzettel: scan home —— */
+.scan-intro {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--secondary);
+  line-height: 1.4;
+}
+.scan-intro code {
+  font-size: 0.92em;
+}
+.scan-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 12px;
+  justify-content: center;
+}
+.scan-panel {
+  margin: 0 0 14px;
+}
+.scan-frame {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--border);
+}
+.scan-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.scan-reticle {
+  position: absolute;
+  inset: 18%;
+  border: 2px solid rgba(221, 0, 122, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+}
+.aux-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 8px;
+}
+.aux-actions .btn {
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+.result-box {
+  margin: 10px 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  word-break: break-all;
+}
+.result-line {
+  margin: 0 0 4px;
+}
+.result-line:last-child {
+  margin-bottom: 0;
+}
+.result-box .muted,
+.muted {
+  color: var(--muted);
+}
+.not-found-box {
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, #c62828 45%, var(--border));
+  background: color-mix(in srgb, #c62828 8%, var(--card));
+  font-size: 14px;
+  line-height: 1.4;
+}
+.not-found-box .btn {
+  margin-top: 10px;
+  width: 100%;
+}
+.settings-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.settings-catalog-block {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, CanvasText 12%, transparent);
+}
+.settings-catalog-block:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 4px;
+}
+.settings-catalog-block.is-unsupported .settings-btn-row .btn-secondary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.btn-secondary:active {
+  opacity: 0.75;
+}
+
+.hit-cell.hit-field:active {
+  outline: 1px solid rgba(0, 0, 0, 0.18);
+  outline-offset: -1px;
+}
+
+.field-entry-dialog {
+  width: min(520px, 96vw);
+}
+.field-entry-dialog #field-entry-title {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.25;
+  font-size: 16px;
+  word-break: break-word;
+}
+
+.field-entry-dialog #field-entry-input {
+  width: 100%;
+  font-size: 17px;
+  padding: 12px;
+  border: 1px solid rgba(60, 60, 67, 0.18);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Fullscreen fixed overlay — replaces nested <dialog> for iOS camera close */
+.field-scan-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: #fff;
+  display: none;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  pointer-events: auto;
+}
+.field-scan-overlay.open {
+  display: flex;
+}
+.field-scan-overlay.hidden,
+.field-scan-overlay[hidden] {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+.field-scan-overlay .field-scan-header,
+.field-scan-overlay .btn-done,
+.field-scan-overlay .btn-field-action {
+  pointer-events: auto;
+  position: relative;
+  z-index: 100001;
+}
+.field-scan-overlay .scan-frame {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  aspect-ratio: 4 / 3;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.field-scan-overlay .scan-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Shared size for field-entry actions: OK matches Scannen (width + height) */
+.btn-field-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 7.5rem;
+  min-height: 2.75rem;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 12px;
+  margin-top: 0;
+  flex: 0 0 auto;
+}
+.field-entry-dialog .btn-field-action.btn-prominent {
+  /* keep magenta fill; match Scannen box geometry */
+  padding: 10px 14px;
+  font-size: 15px;
+  border-radius: 12px;
+}
+.field-entry-dialog .settings-btn-row {
+  align-items: stretch;
+}
+
+
+.field-scan-body {
+  padding: 12px 16px 16px;
+  background: var(--card, #fff);
+  flex: 1;
+}
+
+
+.open-bridge {
+  margin: 18px 0 10px;
+  color: var(--muted, #6b6b6b);
+}

@@ -1,0 +1,2431 @@
+{
+  "id": "lager-stueckliste",
+  "label": "Lager Stückliste (Zeilen)",
+  "pages": {
+    "1": {
+      "page": 1,
+      "style": {
+        "fill_hex": null,
+        "alpha": 0,
+        "stroke": null,
+        "label_mode": "number",
+        "number_color_hex": "#2F6FAE",
+        "omit_text_hint": true,
+        "omit_crosshair": true,
+        "highlight": false
+      },
+      "fields": [
+        {
+          "id": "row_1_01",
+          "number": 1,
+          "page": 1,
+          "label": "SK 104 / 38,1 / STS / Kühlkörper stehend (1.739)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            107.7,
+            779.52,
+            120.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "SK 104 / 38,1 / STS / Kühlkörper stehend",
+          "bedarf_rect_pt": [
+            384.48,
+            107.7,
+            416.04,
+            120.78
+          ]
+        },
+        {
+          "id": "row_1_02",
+          "number": 2,
+          "page": 1,
+          "label": "Printklemme 3 pol WAGO (1.278)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            121.62,
+            779.52,
+            134.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "Printklemme 3 pol WAGO",
+          "bedarf_rect_pt": [
+            384.48,
+            121.62,
+            416.04,
+            134.34
+          ]
+        },
+        {
+          "id": "row_1_03",
+          "number": 3,
+          "page": 1,
+          "label": "Printklemme 4 pol WAGO (1.277)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            135.18,
+            779.52,
+            147.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "Printklemme 4 pol WAGO",
+          "bedarf_rect_pt": [
+            384.48,
+            135.18,
+            416.04,
+            147.78
+          ]
+        },
+        {
+          "id": "row_1_04",
+          "number": 4,
+          "page": 1,
+          "label": "Wannenstecker 10 polig gerade o. Klammer (1.016)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            148.62,
+            779.52,
+            161.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "Wannenstecker 10 polig gerade o. Klammer",
+          "bedarf_rect_pt": [
+            384.48,
+            148.62,
+            416.04,
+            161.34
+          ]
+        },
+        {
+          "id": "row_1_05",
+          "number": 5,
+          "page": 1,
+          "label": "Temp. Schalter 60 grd C (1.019)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            162.18,
+            779.52,
+            174.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "Temp. Schalter 60 grd C",
+          "bedarf_rect_pt": [
+            384.48,
+            162.18,
+            416.04,
+            174.78
+          ]
+        },
+        {
+          "id": "row_1_06",
+          "number": 6,
+          "page": 1,
+          "label": "Temp. Schalter 90 grd C (1.018)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            175.62,
+            779.52,
+            188.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "Temp. Schalter 90 grd C",
+          "bedarf_rect_pt": [
+            384.48,
+            175.62,
+            416.04,
+            188.34
+          ]
+        },
+        {
+          "id": "row_1_07",
+          "number": 7,
+          "page": 1,
+          "label": "FK 216 CB SA Kühlkörper stehend (1.276)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            189.18,
+            779.52,
+            201.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "FK 216 CB SA Kühlkörper stehend",
+          "bedarf_rect_pt": [
+            384.48,
+            189.18,
+            416.04,
+            201.78
+          ]
+        },
+        {
+          "id": "row_1_08",
+          "number": 8,
+          "page": 1,
+          "label": "Lötöse 2,8 mm gerade (1.014)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            202.62,
+            779.52,
+            215.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "Lötöse 2,8 mm gerade",
+          "bedarf_rect_pt": [
+            384.48,
+            202.62,
+            416.04,
+            215.34
+          ]
+        },
+        {
+          "id": "row_1_09",
+          "number": 9,
+          "page": 1,
+          "label": "KFZ 6,3 Flachstecker mit Doppelzunge (1.279)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            216.18,
+            779.52,
+            228.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "KFZ 6,3 Flachstecker mit Doppelzunge",
+          "bedarf_rect_pt": [
+            384.48,
+            216.18,
+            416.04,
+            228.78
+          ]
+        },
+        {
+          "id": "row_1_10",
+          "number": 10,
+          "page": 1,
+          "label": "Halteklammer/ clip/ Temp. Schalter (1.020)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            229.62,
+            779.52,
+            242.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "Halteklammer/ clip/ Temp. Schalter",
+          "bedarf_rect_pt": [
+            384.48,
+            229.62,
+            416.04,
+            242.34
+          ]
+        },
+        {
+          "id": "row_1_11",
+          "number": 11,
+          "page": 1,
+          "label": "47 K / Trimmer liegend PT 10-L (1.258)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            243.18,
+            779.52,
+            255.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "47 K / Trimmer liegend PT 10-L",
+          "bedarf_rect_pt": [
+            384.48,
+            243.18,
+            416.04,
+            255.78
+          ]
+        },
+        {
+          "id": "row_1_12",
+          "number": 12,
+          "page": 1,
+          "label": "250 R / Trimmer liegend PT 10-L (1.351)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            256.62,
+            779.52,
+            269.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "250 R / Trimmer liegend PT 10-L",
+          "bedarf_rect_pt": [
+            384.48,
+            256.62,
+            416.04,
+            269.34
+          ]
+        },
+        {
+          "id": "row_1_13",
+          "number": 13,
+          "page": 1,
+          "label": "25 K / Trimmer liegend PT 10-L (1.306)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            270.18,
+            779.52,
+            282.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "25 K / Trimmer liegend PT 10-L",
+          "bedarf_rect_pt": [
+            384.48,
+            270.18,
+            416.04,
+            282.78
+          ]
+        },
+        {
+          "id": "row_1_14",
+          "number": 14,
+          "page": 1,
+          "label": "0,39 R / 5 W / SQM 5-5% (1.213)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            283.62,
+            779.52,
+            296.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "0,39 R / 5 W / SQM 5-5%",
+          "bedarf_rect_pt": [
+            384.48,
+            283.62,
+            416.04,
+            296.34
+          ]
+        },
+        {
+          "id": "row_1_15",
+          "number": 15,
+          "page": 1,
+          "label": "1 R / 5% / 2 W (1.256)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            297.18,
+            779.52,
+            309.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "1 R / 5% / 2 W",
+          "bedarf_rect_pt": [
+            384.48,
+            297.18,
+            416.04,
+            309.78
+          ]
+        },
+        {
+          "id": "row_1_16",
+          "number": 16,
+          "page": 1,
+          "label": "3,65 K / 1% / 2 W (2.676)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            310.62,
+            779.52,
+            323.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "3,65 K / 1% / 2 W",
+          "bedarf_rect_pt": [
+            384.48,
+            310.62,
+            416.04,
+            323.34
+          ]
+        },
+        {
+          "id": "row_1_17",
+          "number": 17,
+          "page": 1,
+          "label": "6,8 K / 5% / 2 W (1.702)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            324.18,
+            779.52,
+            336.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "6,8 K / 5% / 2 W",
+          "bedarf_rect_pt": [
+            384.48,
+            324.18,
+            416.04,
+            336.78
+          ]
+        },
+        {
+          "id": "row_1_18",
+          "number": 18,
+          "page": 1,
+          "label": "10 K / 5% / 2 W (1.703)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            337.62,
+            779.52,
+            350.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "10 K / 5% / 2 W",
+          "bedarf_rect_pt": [
+            384.48,
+            337.62,
+            416.04,
+            350.34
+          ]
+        },
+        {
+          "id": "row_1_19",
+          "number": 19,
+          "page": 1,
+          "label": "220 R / 5% / 1,0 W (1.338)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            351.18,
+            779.52,
+            363.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "220 R / 5% / 1,0 W",
+          "bedarf_rect_pt": [
+            384.48,
+            351.18,
+            416.04,
+            363.78
+          ]
+        },
+        {
+          "id": "row_1_20",
+          "number": 20,
+          "page": 1,
+          "label": "1,5 K / 1% / 0,6 W (1.341)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            364.62,
+            779.52,
+            377.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "1,5 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            364.62,
+            416.04,
+            377.34
+          ]
+        },
+        {
+          "id": "row_1_21",
+          "number": 21,
+          "page": 1,
+          "label": "2,2 K / 1% / 0,6 W (1.300)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            378.18,
+            779.52,
+            390.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "2,2 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            378.18,
+            416.04,
+            390.78
+          ]
+        },
+        {
+          "id": "row_1_22",
+          "number": 22,
+          "page": 1,
+          "label": "3,3 K / 1% / 0,6 W (1.342)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            391.62,
+            779.52,
+            404.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "3,3 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            391.62,
+            416.04,
+            404.34
+          ]
+        },
+        {
+          "id": "row_1_23",
+          "number": 23,
+          "page": 1,
+          "label": "4,7 K / 1% / 0,6 W (1.185)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            405.18,
+            779.52,
+            417.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "4,7 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            405.18,
+            416.04,
+            417.78
+          ]
+        },
+        {
+          "id": "row_1_24",
+          "number": 24,
+          "page": 1,
+          "label": "22 R / 1% / 0,6 W (1.343)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            418.62,
+            779.52,
+            431.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "22 R / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            418.62,
+            416.04,
+            431.34
+          ]
+        },
+        {
+          "id": "row_1_25",
+          "number": 25,
+          "page": 1,
+          "label": "47 R / 1% / 0,6 W (1.348)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            432.18,
+            779.52,
+            444.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "47 R / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            432.18,
+            416.04,
+            444.78
+          ]
+        },
+        {
+          "id": "row_1_26",
+          "number": 26,
+          "page": 1,
+          "label": "150 R / 1% / 0,6 W (1.713)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            445.62,
+            779.52,
+            458.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "150 R / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            445.62,
+            416.04,
+            458.34
+          ]
+        },
+        {
+          "id": "row_1_27",
+          "number": 27,
+          "page": 1,
+          "label": "220 R / 1% / 0,6 W (1.296)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            459.18,
+            779.52,
+            471.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "220 R / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            459.18,
+            416.04,
+            471.78
+          ]
+        },
+        {
+          "id": "row_1_28",
+          "number": 28,
+          "page": 1,
+          "label": "270 R / 1% / 0,6 W (1.290)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            472.62,
+            779.52,
+            485.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "270 R / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            472.62,
+            416.04,
+            485.34
+          ]
+        },
+        {
+          "id": "row_1_29",
+          "number": 29,
+          "page": 1,
+          "label": "330 R / 1% / 0,6 W (1.429)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            486.18,
+            779.52,
+            498.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "330 R / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            486.18,
+            416.04,
+            498.78
+          ]
+        },
+        {
+          "id": "row_1_30",
+          "number": 30,
+          "page": 1,
+          "label": "402 R / 1% / 0,6 W (1.712)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            499.62,
+            779.52,
+            512.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "402 R / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            499.62,
+            416.04,
+            512.34
+          ]
+        },
+        {
+          "id": "row_1_31",
+          "number": 31,
+          "page": 1,
+          "label": "470 R / 1% / 0,6 W (1.347)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            513.18,
+            779.52,
+            525.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "470 R / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            513.18,
+            416.04,
+            525.78
+          ]
+        },
+        {
+          "id": "gebucht_p1",
+          "number": 90,
+          "page": 1,
+          "label": "gebucht",
+          "type": "tap_gebucht",
+          "rect_pt": [
+            200.0,
+            538.0,
+            532.7,
+            549.5
+          ],
+          "align": "center",
+          "kind": "gebucht",
+          "group": "footer",
+          "highlight": false,
+          "style": {
+            "bold": true,
+            "color_hex": "#dd007a"
+          },
+          "text_rect_pt": [
+            200.0,
+            538.0,
+            532.7,
+            549.5
+          ],
+          "hit_rect_pt": [
+            200.0,
+            532.0,
+            532.7,
+            552.0
+          ]
+        }
+      ]
+    },
+    "2": {
+      "page": 2,
+      "style": {
+        "fill_hex": null,
+        "alpha": 0,
+        "stroke": null,
+        "label_mode": "number",
+        "number_color_hex": "#2F6FAE",
+        "omit_text_hint": true,
+        "omit_crosshair": true,
+        "highlight": false
+      },
+      "fields": [
+        {
+          "id": "row_2_01",
+          "number": 1,
+          "page": 2,
+          "label": "5 R / 5 W / BPC 5 / 5% (1.335)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            107.7,
+            779.52,
+            120.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "5 R / 5 W / BPC 5 / 5%",
+          "bedarf_rect_pt": [
+            384.48,
+            107.7,
+            416.04,
+            120.78
+          ]
+        },
+        {
+          "id": "row_2_02",
+          "number": 2,
+          "page": 2,
+          "label": "0,15 R / 5 W / SQM 5-1% (2.673)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            121.62,
+            779.52,
+            134.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "0,15 R / 5 W / SQM 5-1%",
+          "bedarf_rect_pt": [
+            384.48,
+            121.62,
+            416.04,
+            134.34
+          ]
+        },
+        {
+          "id": "row_2_03",
+          "number": 3,
+          "page": 2,
+          "label": "Drahtbrücke 0,60 mm (1.208)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            135.18,
+            779.52,
+            147.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "Drahtbrücke 0,60 mm",
+          "bedarf_rect_pt": [
+            384.48,
+            135.18,
+            416.04,
+            147.78
+          ]
+        },
+        {
+          "id": "row_2_04",
+          "number": 4,
+          "page": 2,
+          "label": "1,0 M / 1% / 0,6 W (1.291)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            148.62,
+            779.52,
+            161.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "1,0 M / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            148.62,
+            416.04,
+            161.34
+          ]
+        },
+        {
+          "id": "row_2_05",
+          "number": 5,
+          "page": 2,
+          "label": "220 K / 1% / 0,6 W (1.285)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            162.18,
+            779.52,
+            174.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "220 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            162.18,
+            416.04,
+            174.78
+          ]
+        },
+        {
+          "id": "row_2_06",
+          "number": 6,
+          "page": 2,
+          "label": "330 K / 1% / 0,6 W (1.339)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            175.62,
+            779.52,
+            188.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "330 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            175.62,
+            416.04,
+            188.34
+          ]
+        },
+        {
+          "id": "row_2_07",
+          "number": 7,
+          "page": 2,
+          "label": "560 K / 1% / 0,6 W (1.337)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            189.18,
+            779.52,
+            201.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "560 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            189.18,
+            416.04,
+            201.78
+          ]
+        },
+        {
+          "id": "row_2_08",
+          "number": 8,
+          "page": 2,
+          "label": "6,19 K / 1% / 0,6 W (1.350)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            202.62,
+            779.52,
+            215.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "6,19 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            202.62,
+            416.04,
+            215.34
+          ]
+        },
+        {
+          "id": "row_2_09",
+          "number": 9,
+          "page": 2,
+          "label": "10 K / 1% / 0,6 W (1.184)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            216.18,
+            779.52,
+            228.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "10 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            216.18,
+            416.04,
+            228.78
+          ]
+        },
+        {
+          "id": "row_2_10",
+          "number": 10,
+          "page": 2,
+          "label": "21,5 K / 1% / 0,6 W (1.346)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            229.62,
+            779.52,
+            242.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "21,5 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            229.62,
+            416.04,
+            242.34
+          ]
+        },
+        {
+          "id": "row_2_11",
+          "number": 11,
+          "page": 2,
+          "label": "22 K / 1% / 0,6 W (1.292)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            243.18,
+            779.52,
+            255.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "22 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            243.18,
+            416.04,
+            255.78
+          ]
+        },
+        {
+          "id": "row_2_12",
+          "number": 12,
+          "page": 2,
+          "label": "39 K / 1% / 0,6 W (1.581)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            256.62,
+            779.52,
+            269.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "39 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            256.62,
+            416.04,
+            269.34
+          ]
+        },
+        {
+          "id": "row_2_13",
+          "number": 13,
+          "page": 2,
+          "label": "40,2 K / 1% / 0,6 W (1.664)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            270.18,
+            779.52,
+            282.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "40,2 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            270.18,
+            416.04,
+            282.78
+          ]
+        },
+        {
+          "id": "row_2_14",
+          "number": 14,
+          "page": 2,
+          "label": "47 K / 1% / 0,6 W (1.295)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            283.62,
+            779.52,
+            296.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "47 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            283.62,
+            416.04,
+            296.34
+          ]
+        },
+        {
+          "id": "row_2_15",
+          "number": 15,
+          "page": 2,
+          "label": "61,9 K / 1% / 0,6 W (1.714)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            297.18,
+            779.52,
+            309.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "61,9 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            297.18,
+            416.04,
+            309.78
+          ]
+        },
+        {
+          "id": "row_2_16",
+          "number": 16,
+          "page": 2,
+          "label": "100 K / 1% / 0,6 W (1.340)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            310.62,
+            779.52,
+            323.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "100 K / 1% / 0,6 W",
+          "bedarf_rect_pt": [
+            384.48,
+            310.62,
+            416.04,
+            323.34
+          ]
+        },
+        {
+          "id": "row_2_17",
+          "number": 17,
+          "page": 2,
+          "label": "4,7 yF / 80 V / Elko bipolar / RM 2,5 (1.324)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            324.18,
+            779.52,
+            336.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "4,7 yF / 80 V / Elko bipolar / RM 2,5",
+          "bedarf_rect_pt": [
+            384.48,
+            324.18,
+            416.04,
+            336.78
+          ]
+        },
+        {
+          "id": "row_2_18",
+          "number": 18,
+          "page": 2,
+          "label": "10 yF / 100 V / Elko / RM 5,0 (1.430)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            337.62,
+            779.52,
+            350.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "10 yF / 100 V / Elko / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            337.62,
+            416.04,
+            350.34
+          ]
+        },
+        {
+          "id": "row_2_19",
+          "number": 19,
+          "page": 2,
+          "label": "22 yF / 100 V / Elko / RM 2,5 (1.706)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            351.18,
+            779.52,
+            363.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "22 yF / 100 V / Elko / RM 2,5",
+          "bedarf_rect_pt": [
+            384.48,
+            351.18,
+            416.04,
+            363.78
+          ]
+        },
+        {
+          "id": "row_2_20",
+          "number": 20,
+          "page": 2,
+          "label": "100 yF / 25 V / Elko / RM 2,5 (1.182)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            364.62,
+            779.52,
+            377.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "100 yF / 25 V / Elko / RM 2,5",
+          "bedarf_rect_pt": [
+            384.48,
+            364.62,
+            416.04,
+            377.34
+          ]
+        },
+        {
+          "id": "row_2_21",
+          "number": 21,
+          "page": 2,
+          "label": "220 yF / 35 V / Elko bipolar / RM 5-12x20 (1.326)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            378.18,
+            779.52,
+            390.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "220 yF / 35 V / Elko bipolar / RM 5-12x20",
+          "bedarf_rect_pt": [
+            384.48,
+            378.18,
+            416.04,
+            390.78
+          ]
+        },
+        {
+          "id": "row_2_22",
+          "number": 22,
+          "page": 2,
+          "label": "10 yF / 400 V / Elko / 5,0 (1.521)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            391.62,
+            779.52,
+            404.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "10 yF / 400 V / Elko / 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            391.62,
+            416.04,
+            404.34
+          ]
+        },
+        {
+          "id": "row_2_23",
+          "number": 23,
+          "page": 2,
+          "label": "100 nF / 100 V / X7R / RM 5,0 (1.218)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            405.18,
+            779.52,
+            417.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "100 nF / 100 V / X7R / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            405.18,
+            416.04,
+            417.78
+          ]
+        },
+        {
+          "id": "row_2_24",
+          "number": 24,
+          "page": 2,
+          "label": "4,7 pF / 500 V / Keramik Scheibe / RM 5,0 (1.247)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            418.62,
+            779.52,
+            431.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "4,7 pF / 500 V / Keramik Scheibe / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            418.62,
+            416.04,
+            431.34
+          ]
+        },
+        {
+          "id": "row_2_25",
+          "number": 25,
+          "page": 2,
+          "label": "56 pF / 500 V / Keramik Scheibe / RM 5,0 (1.329)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            432.18,
+            779.52,
+            444.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "56 pF / 500 V / Keramik Scheibe / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            432.18,
+            416.04,
+            444.78
+          ]
+        },
+        {
+          "id": "row_2_26",
+          "number": 26,
+          "page": 2,
+          "label": "330 pF / 500 V / Keramik Scheibe / RM 5,0 (1.328)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            445.62,
+            779.52,
+            458.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "330 pF / 500 V / Keramik Scheibe / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            445.62,
+            416.04,
+            458.34
+          ]
+        },
+        {
+          "id": "row_2_27",
+          "number": 27,
+          "page": 2,
+          "label": "10 nF / 100 V / X7R / RM 5,0 (1.707)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            459.18,
+            779.52,
+            471.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "10 nF / 100 V / X7R / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            459.18,
+            416.04,
+            471.78
+          ]
+        },
+        {
+          "id": "row_2_28",
+          "number": 28,
+          "page": 2,
+          "label": "10 nF / 200 V / X7R / RM 5,0 (6.387)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            472.62,
+            779.52,
+            485.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "10 nF / 200 V / X7R / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            472.62,
+            416.04,
+            485.34
+          ]
+        },
+        {
+          "id": "row_2_29",
+          "number": 29,
+          "page": 2,
+          "label": "100 pF / 100 V / NP0 Scheibe / RM 5,0 (1.548)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            486.18,
+            779.52,
+            498.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "100 pF / 100 V / NP0 Scheibe / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            486.18,
+            416.04,
+            498.78
+          ]
+        },
+        {
+          "id": "row_2_30",
+          "number": 30,
+          "page": 2,
+          "label": "22 pF / 100 V / Keramik Scheibe / RM 5,0 (1.569)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            499.62,
+            779.52,
+            512.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "22 pF / 100 V / Keramik Scheibe / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            499.62,
+            416.04,
+            512.34
+          ]
+        },
+        {
+          "id": "row_2_31",
+          "number": 31,
+          "page": 2,
+          "label": "33 pF / 500 V / Keramik Scheibe / RM 5,0 (1.246)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            513.18,
+            779.52,
+            525.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "33 pF / 500 V / Keramik Scheibe / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            513.18,
+            416.04,
+            525.78
+          ]
+        },
+        {
+          "id": "gebucht_p2",
+          "number": 90,
+          "page": 2,
+          "label": "gebucht",
+          "type": "tap_gebucht",
+          "rect_pt": [
+            200.0,
+            538.0,
+            532.7,
+            549.5
+          ],
+          "align": "center",
+          "kind": "gebucht",
+          "group": "footer",
+          "highlight": false,
+          "style": {
+            "bold": true,
+            "color_hex": "#dd007a"
+          },
+          "text_rect_pt": [
+            200.0,
+            538.0,
+            532.7,
+            549.5
+          ],
+          "hit_rect_pt": [
+            200.0,
+            532.0,
+            532.7,
+            552.0
+          ]
+        }
+      ]
+    },
+    "3": {
+      "page": 3,
+      "style": {
+        "fill_hex": null,
+        "alpha": 0,
+        "stroke": null,
+        "label_mode": "number",
+        "number_color_hex": "#2F6FAE",
+        "omit_text_hint": true,
+        "omit_crosshair": true,
+        "highlight": false
+      },
+      "fields": [
+        {
+          "id": "row_3_01",
+          "number": 1,
+          "page": 3,
+          "label": "LP Unterlage 5 (1.078)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            107.7,
+            779.52,
+            120.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "LP Unterlage 5",
+          "bedarf_rect_pt": [
+            384.48,
+            107.7,
+            416.04,
+            120.78
+          ]
+        },
+        {
+          "id": "row_3_02",
+          "number": 2,
+          "page": 3,
+          "label": "FR 153 - BYV 95 A (1.011)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            121.62,
+            779.52,
+            134.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "FR 153 - BYV 95 A",
+          "bedarf_rect_pt": [
+            384.48,
+            121.62,
+            416.04,
+            134.34
+          ]
+        },
+        {
+          "id": "row_3_03",
+          "number": 3,
+          "page": 3,
+          "label": "IRFP 340 PBF (1.561)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            135.18,
+            779.52,
+            147.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "IRFP 340 PBF",
+          "bedarf_rect_pt": [
+            384.48,
+            135.18,
+            416.04,
+            147.78
+          ]
+        },
+        {
+          "id": "row_3_04",
+          "number": 4,
+          "page": 3,
+          "label": "IRFP 9240 (1.562)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            148.62,
+            779.52,
+            161.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "IRFP 9240",
+          "bedarf_rect_pt": [
+            384.48,
+            148.62,
+            416.04,
+            161.34
+          ]
+        },
+        {
+          "id": "row_3_05",
+          "number": 5,
+          "page": 3,
+          "label": "BYW 98-200 (1.330)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            162.18,
+            779.52,
+            174.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "BYW 98-200",
+          "bedarf_rect_pt": [
+            384.48,
+            162.18,
+            416.04,
+            174.78
+          ]
+        },
+        {
+          "id": "row_3_06",
+          "number": 6,
+          "page": 3,
+          "label": "TL 072 CP (1.267)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            175.62,
+            779.52,
+            188.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "TL 072 CP",
+          "bedarf_rect_pt": [
+            384.48,
+            175.62,
+            416.04,
+            188.34
+          ]
+        },
+        {
+          "id": "row_3_07",
+          "number": 7,
+          "page": 3,
+          "label": "1 N 4148 (1.189)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            189.18,
+            779.52,
+            201.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "1 N 4148",
+          "bedarf_rect_pt": [
+            384.48,
+            189.18,
+            416.04,
+            201.78
+          ]
+        },
+        {
+          "id": "row_3_08",
+          "number": 8,
+          "page": 3,
+          "label": "BZX 55 C15 (1.356)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            202.62,
+            779.52,
+            215.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "BZX 55 C15",
+          "bedarf_rect_pt": [
+            384.48,
+            202.62,
+            416.04,
+            215.34
+          ]
+        },
+        {
+          "id": "row_3_09",
+          "number": 9,
+          "page": 3,
+          "label": "ZTX 757 STZ (1.704)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            216.18,
+            779.52,
+            228.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "ZTX 757 STZ",
+          "bedarf_rect_pt": [
+            384.48,
+            216.18,
+            416.04,
+            228.78
+          ]
+        },
+        {
+          "id": "row_3_10",
+          "number": 10,
+          "page": 3,
+          "label": "ZTX 753 (1.551)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            229.62,
+            779.52,
+            242.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "ZTX 753",
+          "bedarf_rect_pt": [
+            384.48,
+            229.62,
+            416.04,
+            242.34
+          ]
+        },
+        {
+          "id": "row_3_11",
+          "number": 11,
+          "page": 3,
+          "label": "ZTX 657 (1.705)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            243.18,
+            779.52,
+            255.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "ZTX 657",
+          "bedarf_rect_pt": [
+            384.48,
+            243.18,
+            416.04,
+            255.78
+          ]
+        },
+        {
+          "id": "row_3_12",
+          "number": 12,
+          "page": 3,
+          "label": "BF 245 B (1.334)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            256.62,
+            779.52,
+            269.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "BF 245 B",
+          "bedarf_rect_pt": [
+            384.48,
+            256.62,
+            416.04,
+            269.34
+          ]
+        },
+        {
+          "id": "row_3_13",
+          "number": 13,
+          "page": 3,
+          "label": "BC 546 B (1.274)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            270.18,
+            779.52,
+            282.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "BC 546 B",
+          "bedarf_rect_pt": [
+            384.48,
+            270.18,
+            416.04,
+            282.78
+          ]
+        },
+        {
+          "id": "row_3_14",
+          "number": 14,
+          "page": 3,
+          "label": "BC 547 B (1.272)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            283.62,
+            779.52,
+            296.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "BC 547 B",
+          "bedarf_rect_pt": [
+            384.48,
+            283.62,
+            416.04,
+            296.34
+          ]
+        },
+        {
+          "id": "row_3_15",
+          "number": 15,
+          "page": 3,
+          "label": "BC 557 B (1.273)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            297.18,
+            779.52,
+            309.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "BC 557 B",
+          "bedarf_rect_pt": [
+            384.48,
+            297.18,
+            416.04,
+            309.78
+          ]
+        },
+        {
+          "id": "row_3_16",
+          "number": 16,
+          "page": 3,
+          "label": "BZX 79 C6V8 (1.354)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            310.62,
+            779.52,
+            323.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "BZX 79 C6V8",
+          "bedarf_rect_pt": [
+            384.48,
+            310.62,
+            416.04,
+            323.34
+          ]
+        },
+        {
+          "id": "row_3_17",
+          "number": 17,
+          "page": 3,
+          "label": "11 DQ 04 (SB140) (1.331)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            324.18,
+            779.52,
+            336.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "11 DQ 04 (SB140)",
+          "bedarf_rect_pt": [
+            384.48,
+            324.18,
+            416.04,
+            336.78
+          ]
+        },
+        {
+          "id": "row_3_18",
+          "number": 18,
+          "page": 3,
+          "label": "47 nF / 500 V- / X7R / RM 5,0 (2.986)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            337.62,
+            779.52,
+            350.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "47 nF / 500 V- / X7R / RM 5,0",
+          "bedarf_rect_pt": [
+            384.48,
+            337.62,
+            416.04,
+            350.34
+          ]
+        },
+        {
+          "id": "row_3_19",
+          "number": 19,
+          "page": 3,
+          "label": "MJE 340 (1.709)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            351.18,
+            779.52,
+            363.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "MJE 340",
+          "bedarf_rect_pt": [
+            384.48,
+            351.18,
+            416.04,
+            363.78
+          ]
+        },
+        {
+          "id": "row_3_20",
+          "number": 20,
+          "page": 3,
+          "label": "MJE 350 (1.708)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            364.62,
+            779.52,
+            377.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "MJE 350",
+          "bedarf_rect_pt": [
+            384.48,
+            364.62,
+            416.04,
+            377.34
+          ]
+        },
+        {
+          "id": "row_3_21",
+          "number": 21,
+          "page": 3,
+          "label": "Relais DS 2 Y - S - 12 V (1.090)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            378.18,
+            779.52,
+            390.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "Relais DS 2 Y - S - 12 V",
+          "bedarf_rect_pt": [
+            384.48,
+            378.18,
+            416.04,
+            390.78
+          ]
+        },
+        {
+          "id": "row_3_22",
+          "number": 22,
+          "page": 3,
+          "label": "2 SC 4793 (1.710)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            391.62,
+            779.52,
+            404.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "2 SC 4793",
+          "bedarf_rect_pt": [
+            384.48,
+            391.62,
+            416.04,
+            404.34
+          ]
+        },
+        {
+          "id": "row_3_23",
+          "number": 23,
+          "page": 3,
+          "label": "2 SA 1837 (1.711)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            405.18,
+            779.52,
+            417.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "2 SA 1837",
+          "bedarf_rect_pt": [
+            384.48,
+            405.18,
+            416.04,
+            417.78
+          ]
+        },
+        {
+          "id": "row_3_24",
+          "number": 24,
+          "page": 3,
+          "label": "Relais 12 V / 16 A ( 41.61.9.012.0310 ) (4.566)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            418.62,
+            779.52,
+            431.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "Relais 12 V / 16 A ( 41.61.9.012.0310 )",
+          "bedarf_rect_pt": [
+            384.48,
+            418.62,
+            416.04,
+            431.34
+          ]
+        },
+        {
+          "id": "row_3_25",
+          "number": 25,
+          "page": 3,
+          "label": "SK 121 / 155 x 72,5 SA-SL Kühlkörper liegend (1.234)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            432.18,
+            779.52,
+            444.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "SK 121 / 155 x 72,5 SA-SL Kühlkörper liegend",
+          "bedarf_rect_pt": [
+            384.48,
+            432.18,
+            416.04,
+            444.78
+          ]
+        },
+        {
+          "id": "row_3_26",
+          "number": 26,
+          "page": 3,
+          "label": "LP Endstufe 27XX V1 (2.545)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            445.62,
+            779.52,
+            458.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "LP Endstufe 27XX V1",
+          "bedarf_rect_pt": [
+            384.48,
+            445.62,
+            416.04,
+            458.34
+          ]
+        },
+        {
+          "id": "row_3_27",
+          "number": 27,
+          "page": 3,
+          "label": "M 3 Mutter (1.037)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            459.18,
+            779.52,
+            471.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "M 3 Mutter",
+          "bedarf_rect_pt": [
+            384.48,
+            459.18,
+            416.04,
+            471.78
+          ]
+        },
+        {
+          "id": "row_3_28",
+          "number": 28,
+          "page": 3,
+          "label": "M 3 Unterlegscheibe D7 (1.035)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            472.62,
+            779.52,
+            485.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "M 3 Unterlegscheibe D7",
+          "bedarf_rect_pt": [
+            384.48,
+            472.62,
+            416.04,
+            485.34
+          ]
+        },
+        {
+          "id": "row_3_29",
+          "number": 29,
+          "page": 3,
+          "label": "M 3 x 10 Torx Schraube mit US und Federring (3.311)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            486.18,
+            779.52,
+            498.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "M 3 x 10 Torx Schraube mit US und Federring",
+          "bedarf_rect_pt": [
+            384.48,
+            486.18,
+            416.04,
+            498.78
+          ]
+        },
+        {
+          "id": "row_3_30",
+          "number": 30,
+          "page": 3,
+          "label": "M 3 x 8 Torx Schraube mit US und Federring (1.432)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            499.62,
+            779.52,
+            512.34
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "M 3 x 8 Torx Schraube mit US und Federring",
+          "bedarf_rect_pt": [
+            384.48,
+            499.62,
+            416.04,
+            512.34
+          ]
+        },
+        {
+          "id": "row_3_31",
+          "number": 31,
+          "page": 3,
+          "label": "THFM 6 (1.323)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            513.18,
+            779.52,
+            525.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "THFM 6",
+          "bedarf_rect_pt": [
+            384.48,
+            513.18,
+            416.04,
+            525.78
+          ]
+        },
+        {
+          "id": "gebucht_p3",
+          "number": 90,
+          "page": 3,
+          "label": "gebucht",
+          "type": "tap_gebucht",
+          "rect_pt": [
+            200.0,
+            538.0,
+            532.7,
+            549.5
+          ],
+          "align": "center",
+          "kind": "gebucht",
+          "group": "footer",
+          "highlight": false,
+          "style": {
+            "bold": true,
+            "color_hex": "#dd007a"
+          },
+          "text_rect_pt": [
+            200.0,
+            538.0,
+            532.7,
+            549.5
+          ],
+          "hit_rect_pt": [
+            200.0,
+            532.0,
+            532.7,
+            552.0
+          ]
+        }
+      ]
+    },
+    "4": {
+      "page": 4,
+      "style": {
+        "fill_hex": null,
+        "alpha": 0,
+        "stroke": null,
+        "label_mode": "number",
+        "number_color_hex": "#2F6FAE",
+        "omit_text_hint": true,
+        "omit_crosshair": true,
+        "highlight": false
+      },
+      "fields": [
+        {
+          "id": "row_4_01",
+          "number": 1,
+          "page": 4,
+          "label": "ZMM 9,1 / SMD / 0204 (4.764)",
+          "type": "tap_row_cover",
+          "rect_pt": [
+            71.76,
+            107.7,
+            779.52,
+            120.78
+          ],
+          "align": "center",
+          "kind": "row",
+          "group": "row",
+          "left_ref": "ZMM 9,1 / SMD / 0204",
+          "bedarf_rect_pt": [
+            384.48,
+            107.7,
+            416.04,
+            120.78
+          ]
+        },
+        {
+          "id": "gebucht_p4",
+          "number": 90,
+          "page": 4,
+          "label": "gebucht",
+          "type": "tap_gebucht",
+          "rect_pt": [
+            200.0,
+            538.0,
+            532.7,
+            549.5
+          ],
+          "align": "center",
+          "kind": "gebucht",
+          "group": "footer",
+          "highlight": false,
+          "style": {
+            "bold": true,
+            "color_hex": "#dd007a"
+          },
+          "text_rect_pt": [
+            200.0,
+            538.0,
+            532.7,
+            549.5
+          ],
+          "hit_rect_pt": [
+            200.0,
+            532.0,
+            532.7,
+            552.0
+          ]
+        }
+      ]
+    }
+  },
+  "capability_types": {
+    "tap_ok": {
+      "description": "Tapping the cell writes the fixed text \"OK\" (used later for stamps; Lager rows use tap_row_cover instead).",
+      "value": "OK",
+      "manual_entry": false
+    },
+    "manual_text": {
+      "description": "Opens the keyboard for free manual text/number entry into the cell.",
+      "manual_entry": true
+    },
+    "tap_x": {
+      "description": "On tap, write \"X\" into the cell (checkbox-style mark).",
+      "value": "X"
+    },
+    "tap_date_settings": {
+      "description": "On tap/press, write today's date in format DD.MM.YY (e.g. 15.09.26). Default date is today but user can set a different working date in settings.",
+      "format": "DD.MM.YY",
+      "settings_key": "stamp_date",
+      "default": "today"
+    },
+    "tap_initials_stamp": {
+      "description": "On tap/press, stamp configured user initials into the cell.",
+      "settings_key": "stamp_initials"
+    },
+    "scan_or_manual": {
+      "description": "Tapping the cell opens the camera for DataMatrix or 1D barcode; decoded value is written into the cell. Manual numeric/text entry is also allowed.",
+      "scan_formats": [
+        "DataMatrix",
+        "1D_barcode"
+      ],
+      "manual_entry": true,
+      "write_decoded_to_cell": true
+    },
+    "manual_date": {
+      "description": "Manual date entry into the cell (datepicker or typed date).",
+      "manual_entry": true,
+      "value_kind": "date"
+    },
+    "removed": {
+      "description": "Field deleted — not an interactive input."
+    },
+    "tap_row_cover": {
+      "description": "Tapping the row covers it with 50% white and strokes the Bedarf Stck cell in black. Tap again clears. No OK/stamp text.",
+      "manual_entry": false,
+      "overlay": "rgba(255,255,255,0.5)",
+      "bedarf_stroke": "#000000"
+    },
+    "tap_gebucht": {
+      "description": "Invisible bottom-of-page tap writes „gebucht am {TT.MM.JJ} von {initials}“ using settings stamp date + initials. Tap again clears. No blue highlight, no row whitewash.",
+      "format": "gebucht am {date} von {initials}",
+      "settings_keys": [
+        "stamp_date",
+        "stamp_initials"
+      ],
+      "manual_entry": false,
+      "highlight": false,
+      "row_cover": false
+    }
+  },
+  "bedarf_column": {
+    "header": "Bedarf Stck",
+    "x0_pt": 384.48,
+    "x1_pt": 416.04,
+    "detected_from": "page 1 header text Bedarf/Stck + vertical rules"
+  },
+  "view_crop_pt": [
+    70.9,
+    42.6,
+    780.6,
+    551.3
+  ]
+}
