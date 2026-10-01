@@ -1,0 +1,4 @@
+Deploy: GitHub Pages from branch main, folder /
+URL: https://beak-electronic.github.io/lager-stueckliste/
+
+Local: python3 -m http.server
